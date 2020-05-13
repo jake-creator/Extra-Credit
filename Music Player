@@ -1,0 +1,205 @@
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,500|Raleway:300,300i,400,400i,500');
+
+body, body * { margin: 0; padding: 0; }
+
+html, body { height: 100vh; }
+
+body {
+  font-family: Raleway, sans-serif;
+  font-size: 100%;
+  color: #323;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  background-color: #f0f0f0;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.poster {
+  height: 240px;
+  margin-top: 57px;
+  background: url(http://polklein.com/music/img/hello.jpg);
+  background-size: cover;
+  transition: all 0.5s;
+}
+
+h1 {
+  background-color: royalblue;
+  color: white;
+  padding: 10px 0;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: normal;
+  padding: 10px 0;
+  color: white;
+  background-color: rgba(255,255,255,0.25);
+}
+
+main {
+  height: 100vh;
+}
+
+.song-container {
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+  background-color: white;  
+}
+
+.song-container:first-of-type {
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+}
+
+.song {
+  width: 90%;
+  min-width: 400px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.song-info {
+  margin-bottom: 4px;
+}
+
+.song-title {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.song-author {
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.song-author::before {
+  content: "by ";
+}
+
+audio {
+  display: block;
+  width: 100%;
+  min-width: 400px;
+  max-width: 700px;
+}
+
+
+</style>
+
+          // This assignment requires JavaScript to be initilalized.
+          // No JavaScript is provided in the framework. Just the HTML and CSS
+          // JavaScript code is shown by the coder
+          // This was also done in CodePen under the JS Banner
+          
+          
+
+<script>
+
+console.clear();
+
+class musicPlayer {
+	constructor() {
+		this.play = this.play.bind(this);
+		this.playBtn = document.getElementById('play');
+		this.playBtn.addEventListener('click', this.play);
+		this.controlPanel = document.getElementById('control-panel');
+		this.infoBar = document.getElementById('info');
+	}
+
+	play() {
+		let controlPanelObj = this.controlPanel,
+		infoBarObj = this.infoBar
+		Array.from(controlPanelObj.classList).find(function(element){
+					return element !== "active" ? controlPanelObj.classList.add('active') : 		controlPanelObj.classList.remove('active');
+			});
+		
+		Array.from(infoBarObj.classList).find(function(element){
+					return element !== "active" ? infoBarObj.classList.add('active') : 		infoBarObj.classList.remove('active');
+			});
+	}
+}
+
+const newMusicplayer = new musicPlayer();
+
+
+
+</script>
+
+<header>
+  <h1>Favorites Playlist</h1>
+  <h2>Pol's Music Player</h2>
+</header>
+<main>
+  <section class="poster">
+  </section>
+  <div class="song-container">
+    <div class="song">
+      <div class="song-info">
+        <p class="song-title">Is This What You&apos;ve Been Waiting For?</p>
+        <p class="song-author">Higher Balance Institute</p>
+      </div>
+      <audio controls tabindex="1">
+        <source src="http://polklein.com/music/higher.mp3" type="audio/mp3">
+      </audio>
+    </div>
+  </div>
+  
+  <div class="song-container">
+    <div class="song">
+      <div class="song-info">
+        <p class="song-title">Moola Mantra</p>
+        <p class="song-author">India</p>
+      </div>
+      <audio controls tabindex="2">
+        <source src="http://polklein.com/music/mantra.mp3" type="audio/mp3">
+      </audio>
+    </div>
+  </div>
+
+  <div class="song-container">
+    <div class="song">
+      <div class="song-info">
+        <p class="song-title">Hello</p>
+        <p class="song-author">Adele</p>
+      </div>
+      <audio controls tabindex="3">
+        <source src="http://polklein.com/music/hello.mp3" type="audio/mp3">
+      </audio>
+    </div>
+  </div>
+
+  <div class="song-container">
+    <div class="song">
+      <div class="song-info">
+        <p class="song-title">Someone Like You</p>
+        <p class="song-author">Adele</p>
+      </div>
+      <audio controls tabindex="4">
+        <source src="http://polklein.com/music/someone.mp3" type="audio/mp3">
+      </audio>
+    </div>
+  </div>
+    
+  <div class="song-container">
+    <div class="song">
+      <div class="song-info">
+        <p class="song-title">Angel in Blue Jeans</p>
+        <p class="song-author">Train</p>
+      </div>
+      <audio controls tabindex="5">
+        <source src="http://polklein.com/music/angel.mp3" type="audio/mp3">
+      </audio>
+    </div>
+  </div>
+</main>
